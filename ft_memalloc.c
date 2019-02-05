@@ -15,13 +15,10 @@
 void	*ft_memalloc(size_t size)
 {
 	void *ptr;
-	char *a;
 
-	ptr = &a;
-	a = malloc(size);
-	if (!a)
+	ptr = malloc(sizeof(*ptr) * size);
+	if (ptr == NULL)
 		return (NULL);
-	while (size)
-		a[size--] = 0;
+	ft_memset(ptr, 0, size);
 	return (ptr);
 }

@@ -19,11 +19,13 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 	s2 = (char*)malloc(len + 1);
-	while ((*s != 0) && (*s != (char)start))
-		++s;
-	while ((*s != 0) && (len > 0))
+	if (!s2)
+		return (NULL);
+	while ((s[start] != 0) && (len > 0))
 	{
-		s2[i++] = *s++;
+		s2[i] = s[start];
+		++i;
+		++s;
 		--len;
 	}
 	s2[i] = 0;

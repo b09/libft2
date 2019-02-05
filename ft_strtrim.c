@@ -18,21 +18,25 @@ char	*ft_strtrim(char const *s)
 	char	*c;
 
 	i = 0;
-	while ((*s > 0) && (*s < 33))
+	while ((*(unsigned char*)s > 0) && (*(unsigned char*)s < 33))
 		s++;
-	while (*s != 0)
+	if (!*s)
+	{
+		c = (char*)malloc((sizeof(char*)));
+		return (c);
+	}
+	while (*(unsigned char*)s != 0)
 	{
 		++i;
 		++s;
 	}
-	--s;
-	--i;
-	while ((*s > 0) && (*s < 33))
+	while ((*(unsigned char*)s >= 0) && (*(unsigned char*)s < 33))
 	{
 		--s;
 		--i;
 	}
 	c = (char*)malloc((sizeof(char) * i) + 1);
 	ft_strncpy(c, &s[-i], i + 1);
+	c[i + 1] = 0;
 	return (c);
 }

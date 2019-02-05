@@ -15,6 +15,7 @@ NAME = libft.a
 FLAGS = -Wall -Wextra -Werror
 
 SRC = 	ft_atoi.c \
+		ft_atoi_base.c \
 		ft_bzero.c \
 		ft_isalnum.c \
  		ft_isalpha.c \
@@ -24,6 +25,8 @@ SRC = 	ft_atoi.c \
  		ft_itoa.c \
  		ft_memalloc.c \
  		ft_memccpy.c \
+		ft_memchr.c \
+		ft_memcmp.c \
  		ft_memcpy.c \
  		ft_memdel.c \
  		ft_memmove.c \
@@ -64,8 +67,18 @@ SRC = 	ft_atoi.c \
  		ft_strtrim.c \
  		ft_tolower.c \
  		ft_toupper.c \
+		ft_wordcnt.c \
+		ft_lstmap.c \
+		ft_lstnew.c \
+		ft_lstiter.c \
+		ft_lstdel.c \
+		ft_lstdelone.c \
+		ft_lstadd.c \
+		ft_strupper.c \
+		ft_strlower.c \
 
-OBJ = ft_atoi.o \
+OBJ = 	ft_atoi.o \
+		ft_atoi_base.o \
 		ft_bzero.o \
 		ft_isalnum.o \
  		ft_isalpha.o \
@@ -75,6 +88,8 @@ OBJ = ft_atoi.o \
  		ft_itoa.o \
  		ft_memalloc.o \
  		ft_memccpy.o \
+		ft_memchr.o \
+		ft_memcmp.o \
  		ft_memcpy.o \
  		ft_memdel.o \
  		ft_memmove.o \
@@ -115,6 +130,15 @@ OBJ = ft_atoi.o \
  		ft_strtrim.o \
  		ft_tolower.o \
  		ft_toupper.o \
+		ft_wordcnt.o \
+		ft_lstmap.o \
+		ft_lstnew.o \
+		ft_lstiter.o \
+		ft_lstdel.o \
+		ft_lstdelone.o \
+		ft_lstadd.o \
+		ft_strupper.o \
+		ft_strlower.o \
 
 all: $(NAME)
 

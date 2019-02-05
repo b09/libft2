@@ -14,21 +14,23 @@
 
 void	ft_putnbr(int n)
 {
-	char a;
+	char			a;
+	unsigned int	i;
 
 	if (n < 0)
 	{
 		n = -n;
 		write(1, "-", 1);
 	}
-	if (n > 9)
+	i = n;
+	if (i > 9)
 	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
+		ft_putnbr(i / 10);
+		ft_putnbr(i % 10);
 	}
-	if (n <= 9 && n >= 0)
+	if (i <= 9)
 	{
-		a = '0' + n;
+		a = '0' + i;
 		write(1, &a, 1);
 	}
 }

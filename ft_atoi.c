@@ -19,15 +19,15 @@ int		ft_atoi(const char *str)
 
 	i = 0;
 	j = 1;
-	while ((*str > 0) && (*str < 33))
+	while ((*str > 0) && (*str < 33) && (*str != 27))
 		++str;
 	if ((*str == 43) || (*str == 45))
 	{
 		if (*str == 45)
 		{
-			--j;
-			++str;
+			j = -j;
 		}
+		++str;
 	}
 	while ((*str > 47) && (*str < 58))
 		i = (i * 10) + (*str++ - 48);

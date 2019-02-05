@@ -12,30 +12,50 @@
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+static char		*ft_itoa_two(int n, char *str, int i, int k)
 {
-	char			*str;
-	int				i;
 	unsigned int	j;
-	int				k;
 
-	i = 0;
-	k = n;
-	(n < 0) ? (n = -n) : n;
-	str = (char*)malloc(12);
+	if (k == -2147483648)
+	{
+		str = "-2147483648";
+		return (str);
+	}
 	(k < 0) ? (str[0] = '-') : str[0];
-	(k < 0) ? (++i) : i;
 	j = n;
 	k = 1;
-	while (n > 9)
+	str[i] = 0;
+	--i;
+	while (i > 0)
+	{
+		n = n % 10;
+		str[i] = (n + '0');
+		j /= 10;
+		n = j;
+		--i;
+	}
+	if (str[0] != '-')
+		str[0] = (n + '0');
+	return (str);
+}
+
+char			*ft_itoa(int n)
+{
+	char		*str;
+	int			i;
+	int			k;
+
+	i = 1;
+	k = n;
+	while (n > 9 || n < -9)
 	{
 		n /= 10;
-		k *= 10;
-		(n <= 9) ? ((str[i++]) = (n + '0')) : (n);
-		(n <= 9) ? (j %= k) : (n);
-		(n <= 9) ? (k = 1) : (n);
-		(n <= 9) ? (n = j) : (n);
-		(n <= 9) ? (str[i] = (n + '0')) : (n);
+		++i;
 	}
+	n = k;
+	(k < 0) ? (n = -k) : n;
+	(k < 0) ? (++i) : k;
+	str = (char*)malloc(i + 1);
+	str = ft_itoa_two(n, str, i, k);
 	return (str);
 }
