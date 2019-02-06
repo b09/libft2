@@ -18,7 +18,11 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	char	*cpy;
 
 	i = 0;
+	if (!s || !f)
+		return (NULL);
 	cpy = (char*)malloc(ft_strlen(s) + 1);
+	if (!cpy)
+		return (NULL);
 	while (s[i] != 0)
 	{
 		cpy[i] = f(s[i]);

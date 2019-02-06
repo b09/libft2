@@ -14,8 +14,8 @@
 
 int		ft_atoi(const char *str)
 {
-	int i;
-	int j;
+	long long int	i;
+	int				j;
 
 	i = 0;
 	j = 1;
@@ -31,5 +31,5 @@ int		ft_atoi(const char *str)
 	}
 	while ((*str > 47) && (*str < 58))
 		i = (i * 10) + (*str++ - 48);
-	return (i * j);
+	return ((int)i * j);
 }

@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strclr.c                                        :+:    :+:            */
+/*   ft_memrcpy.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: bprado <bprado@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/17 17:51:45 by bprado        #+#    #+#                 */
-/*   Updated: 2019/01/21 17:09:52 by bprado        ########   odam.nl         */
+/*   Created: 2019/02/06 13:13:24 by bprado        #+#    #+#                 */
+/*   Updated: 2019/02/06 13:15:09 by bprado        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strclr(char *s)
+void		*ft_memrcpy(void *dst, const void *src, size_t len)
 {
-	int i;
+	unsigned char	*a;
+	unsigned char	*b;
 
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
-		s[i++] = 0;
+	a = (unsigned char *)dst;
+	b = (unsigned char *)src;
+	while (len)
+	{
+		a[len - 1] = b[len - 1];
+		--len;
+	}
+	return (dst);
 }

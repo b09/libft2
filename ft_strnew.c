@@ -22,5 +22,6 @@ char	*ft_strnew(size_t size)
 	str[size + 1] = 0;
 	while (size)
 		str[size--] = 0;
+	str[0] = 0;
 	return (str);
 }

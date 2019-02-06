@@ -44,6 +44,8 @@ char			**ft_strsplit(char const *s, char c)
 {
 	char	**ary;
 
+	if (!s)
+		return (NULL);
 	ary = (char**)malloc(sizeof(char*) * ft_wordcnt(s, c) + 1);
 	if (ary == NULL)
 		return (NULL);

@@ -76,6 +76,7 @@ SRC = 	ft_atoi.c \
 		ft_lstadd.c \
 		ft_strupper.c \
 		ft_strlower.c \
+		ft_memrcpy.c \
 
 OBJ = 	ft_atoi.o \
 		ft_atoi_base.o \
@@ -139,12 +140,13 @@ OBJ = 	ft_atoi.o \
 		ft_lstadd.o \
 		ft_strupper.o \
 		ft_strlower.o \
+		ft_memrcpy.o \
 
 all: $(NAME)
 
 $(NAME): 
 		gcc $(FLAGS) -c $(SRC)
-		ar rc $(NAME) $(OBJ)
+		ar rcs $(NAME) $(OBJ)
 
 
 clean:

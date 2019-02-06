@@ -17,26 +17,24 @@ char	*ft_strtrim(char const *s)
 	int		i;
 	char	*c;
 
-	i = 0;
-	while ((*(unsigned char*)s > 0) && (*(unsigned char*)s < 33))
+	if (!s)
+		return (NULL);
+	while ((*s == '\t') || (*s == ' ') || (*s == '\n'))
 		s++;
 	if (!*s)
 	{
-		c = (char*)malloc((sizeof(char*)));
+		c = (char*)malloc((sizeof(char)));
+		if (!c)
+			return (NULL);
+		c[0] = 0;
 		return (c);
 	}
-	while (*(unsigned char*)s != 0)
-	{
-		++i;
-		++s;
-	}
-	while ((*(unsigned char*)s >= 0) && (*(unsigned char*)s < 33))
-	{
-		--s;
+	i = ft_strlen(s);
+	while ((s[i - 1] == '\t') || (s[i - 1] == ' ') || (s[i - 1] == '\n'))
 		--i;
-	}
-	c = (char*)malloc((sizeof(char) * i) + 1);
-	ft_strncpy(c, &s[-i], i + 1);
-	c[i + 1] = 0;
+	c = (char*)ft_memalloc(sizeof(char) * (i + 1));
+	if (!c)
+		return (NULL);
+	ft_strncpy(c, s, i);
 	return (c);
 }
