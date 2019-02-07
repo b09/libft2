@@ -21,7 +21,10 @@ char	*ft_strnew(size_t size)
 		return (NULL);
 	str[size + 1] = 0;
 	while (size)
-		str[size--] = 0;
+	{
+		str[size] = 0;
+		--size;
+	}
 	str[0] = 0;
 	return (str);
 }

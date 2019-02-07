@@ -20,5 +20,8 @@ void	ft_strclr(char *s)
 	if (!s)
 		return ;
 	while (s[i])
-		s[i++] = 0;
+	{
+		s[i] = 0;
+		++i;
+	}
 }

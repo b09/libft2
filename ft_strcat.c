@@ -24,7 +24,9 @@ char	*ft_strcat(char *s1, const char *s2)
 	}
 	while (*s2 != 0)
 	{
-		*s1++ = *s2++;
+		*s1 = *s2;
+		++s1;
+		++s2;
 		++i;
 	}
 	*s1 = 0;
